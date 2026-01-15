@@ -1,5 +1,4 @@
-import { Component, inject, computed, resource } from '@angular/core';
-import { firstValueFrom } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { HeroService } from '../../services/hero.service';
 import { Hero } from '../../models/hero.model';
@@ -10,19 +9,17 @@ import { Hero } from '../../models/hero.model';
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',
 })
-export class Dashboard {
-  private heroService = inject(HeroService);
+export class Dashboard implements OnInit {
+  heroes: Hero[] = [];
 
-  // Use 'resource' to fetch data declaratively.
-  protected heroesResource = resource({
-    loader: () => firstValueFrom(this.heroService.getHeroes())
-  });
+  constructor(private heroService: HeroService) {}
 
-  // Use 'computed' to derive state.
-  // When 'heroesResource' updates, this signal automatically updates.
-  // We slice the array here instead of inside a subscription.
-  protected heroes = computed(() => {
-    const allHeroes = this.heroesResource.value() ?? [];
-    return allHeroes.slice(0, 5);
-  });
+  ngOnInit(): void {
+    this.getHeroes();
+  }
+
+  getHeroes(): void {
+    this.heroService.getHeroes()
+      .subscribe(heroes => this.heroes = heroes.slice(0, 5));
+  }
 }

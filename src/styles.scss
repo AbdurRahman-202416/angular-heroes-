@@ -1,10 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
 nav a {
   padding: 10px 15px;
   text-decoration: none;
   margin-top: 10px;
   display: inline-block;
-  background-color: #e8e8e8; /* Light grey */
+  background-color: #e8e8e8;
   color: #3d3d3d;
   border-radius: 4px;
   margin-right: 10px;
@@ -23,10 +22,9 @@ nav {
 
 nav a:hover {
   color: white;
-  background-color: #42545c; /* Darker blue-grey */
+  background-color: #42545c;
 }
 
-/* This class is applied automatically by routerLinkActive */
 nav a.active {
   background-color: #333;
   color: white;

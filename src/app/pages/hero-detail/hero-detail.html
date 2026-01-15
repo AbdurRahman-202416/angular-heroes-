@@ -1,18 +1,18 @@
 <div class="hero-detail">
-  @if (hero(); as heroData) {
+  @if (hero) {
     <div class="hero-card">
-      <h2>{{ heroData.name | uppercase }} Details</h2>
+      <h2>{{ hero.name | uppercase }} Details</h2>
       
       <div class="hero-info">
         <div class="info-row">
           <span class="label">ID:</span>
-          <span class="value">{{ heroData.id }}</span>
+          <span class="value">{{ hero.id }}</span>
         </div>
         <div class="info-row">
           <span class="label">Name:</span>
           <div class="edit-field">
             <input 
-              [(ngModel)]="editableName" 
+              [(ngModel)]="hero.name" 
               type="text" 
               class="hero-input"
               placeholder="Enter hero name"
@@ -21,9 +21,9 @@
         </div>
       </div>
 
-      @if (saveMessage()) {
-        <div class="message" [class.error]="isError()" [class.success]="!isError()">
-          {{ saveMessage() }}
+      @if (saveMessage) {
+        <div class="message" [class.error]="isError" [class.success]="!isError">
+          {{ saveMessage }}
         </div>
       }
 
@@ -36,4 +36,3 @@
     <div class="loading">Loading hero details...</div>
   }
 </div>
-
