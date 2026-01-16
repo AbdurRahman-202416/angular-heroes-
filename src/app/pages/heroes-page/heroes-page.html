@@ -1,5 +1,23 @@
 <div class="heroes-page">
   <h2>All Heroes</h2>
+
+  <div class="search-container">
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label>Search Heroes</mat-label>
+      <input type="text"
+             matInput
+             [formControl]="searchControl"
+             [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        @for (hero of heroes; track hero.id) {
+          <mat-option [routerLink]="['/detail', hero.id]" [value]="hero.name">
+            {{ hero.name }}
+          </mat-option>
+        }
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+
   <div class="heroes-list">
     @for (hero of heroes; track hero.id) {
       <a [routerLink]="['/detail', hero.id]" class="hero-item">
@@ -7,5 +25,15 @@
         <span class="hero-name">{{ hero.name }}</span>
       </a>
     }
+    @if (heroes.length === 0) {
+      <div class="no-results">No heroes found.</div>
+    }
   </div>
+
+  <mat-paginator [length]="totalHeroes"
+                 [pageSize]="pageSize"
+                 [pageSizeOptions]="[5, 10, 25, 50]"
+                 (page)="onPageChange($event)"
+                 aria-label="Select page">
+  </mat-paginator>
 </div>

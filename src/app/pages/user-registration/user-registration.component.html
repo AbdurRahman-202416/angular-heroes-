@@ -1,0 +1,17 @@
+<div class="registration-wrapper">
+  <div class="hotel-card">
+    <div class="card-header">
+      <h2>Grand Hotel Registration</h2>
+      <p>Please fill out the form to book your stay</p>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="submit()" class="hotel-form">
+      <formly-form [form]="form" [fields]="fields" [model]="model"> </formly-form>
+
+      <div class="form-actions">
+        <button type="submit" class="btn-submit" [disabled]="!form.valid">Confirm Booking</button>
+        <button type="button" class="btn-reset" (click)="form.reset()">Reset</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,138 @@
+@use 'sass:color';
+// Variables
+$primary-color: #2c3e50;
+$accent-color: #e67e22;
+$bg-color: #f4f7f6;
+$white: #ffffff;
+$border-radius: 12px;
+
+.registration-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: $bg-color;
+  padding: 20px;
+  margin-top: 40px;
+  margin-bottom: 70px;
+
+  .hotel-card {
+    background: $white;
+    width: 100%;
+    max-width: 550px;
+    padding: 40px;
+    border-radius: $border-radius;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+
+    .card-header {
+      text-align: center;
+      margin-bottom: 30px;
+
+      h2 {
+        color: $primary-color;
+        font-size: 24px;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      p {
+        color: #7f8c8d;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+// Formly Field Customization
+.hotel-form {
+  ::ng-deep {
+    formly-field {
+      display: block;
+      margin-bottom: 20px;
+
+      label {
+        font-weight: 600;
+        margin-bottom: 8px;
+        display: block;
+        color: $primary-color;
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #dcdde1;
+        border-radius: 6px;
+        font-size: 15px;
+        transition: border-color 0.3s ease;
+
+        &:focus {
+          outline: none;
+          border-color: $accent-color;
+          box-shadow: 0 0 5px rgba($accent-color, 0.2);
+        }
+      }
+    }
+  }
+
+  ::ng-deep {
+    formly-field {
+      // ... আপনার বাকি কোড
+
+      select {
+        background-color: $white !important; // এখানে সাদা কালার দিন
+        color: $primary-color;
+        cursor: pointer;
+
+        // অপশনগুলো যাতে সাদা দেখায়
+        option {
+          background-color: $white;
+          color: $primary-color;
+        }
+      }
+    }
+  }
+
+  .form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+
+    button {
+      flex: 1;
+      padding: 14px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &.btn-submit {
+        background-color: $accent-color;
+        color: $white;
+
+        &:hover:not(:disabled) {
+          background-color: color.adjust($accent-color, $lightness: -10%);
+        }
+
+        &:disabled {
+          background-color: #bdc3c7;
+          cursor: not-allowed;
+        }
+      }
+
+      &.btn-reset {
+        background-color: transparent;
+        color: $primary-color;
+        border: 1px solid $primary-color;
+
+        &:hover {
+          background-color: $primary-color;
+          color: $white;
+        }
+      }
+    }
+  }
+}

@@ -1,10 +1,12 @@
 <div class="dashboard">
   <h2>Top Heroes</h2>
+
   <div class="heroes-grid">
     @for (hero of heroes; track hero.id) {
-      <a [routerLink]="['/detail', hero.id]" class="hero-card">
-        <h3>{{ hero.name }}</h3>
-      </a>
+    <a [routerLink]="['/detail', hero.id]" class="hero-card">
+      <h3>{{ hero.name }}</h3>
+    </a>
     }
   </div>
+
 </div>

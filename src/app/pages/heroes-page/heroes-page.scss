@@ -10,13 +10,21 @@
     margin-bottom: 30px;
     font-size: 2rem;
   }
+
+  .search-container {
+    margin-bottom: 20px;
+
+    .search-field {
+      width: 100%;
+    }
+  }
 }
 
 .heroes-list {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 .hero-item {
@@ -58,4 +66,13 @@
 .hero-name {
   font-size: 1.1rem;
   font-weight: 500;
+}
+
+.no-results {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
 }
