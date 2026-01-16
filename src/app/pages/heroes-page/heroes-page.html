@@ -2,10 +2,17 @@
   <h2>All Heroes</h2>
   <div class="heroes-list">
     @for (hero of heroes; track hero.id) {
-      <a [routerLink]="['/detail', hero.id]" class="hero-item">
-        <span class="hero-badge">{{ hero.id }}</span>
-        <span class="hero-name">{{ hero.name }}</span>
-      </a>
+    <a [routerLink]="['/detail', hero.id]" class="hero-item">
+      <span class="hero-badge">{{ hero.id }}</span>
+      <span class="hero-name">{{ hero.name }}</span>
+    </a>
     }
   </div>
+  <mat-paginator
+    [length]="100"
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    aria-label="Select page"
+  >
+  </mat-paginator>
 </div>
