@@ -2,6 +2,33 @@
 
 A simplified, educational Angular application for managing superheroes, specifically designed for junior developers to learn core Angular concepts. This project demonstrates CRUD functionality using traditional Angular patterns.
 
+
+![alt text](image.png)
+
+# This Tour of Heroes tutorial provides an introduction to the fundamentals of Angular and shows you how to:
+
+Set up your local Angular development environment.
+Use the Angular CLI to develop an application.
+The Tour of Heroes application that you build helps a staffing agency manage its stable of heroes. The application has many of the features that you'd expect to find in any data-driven application.
+
+The finished application:
+
+Gets a list of heroes
+Displays the heroes in a list
+Edits a selected hero's details
+Navigates between different views of heroic data
+This tutorial helps you gain confidence that Angular can do whatever you need it to do by showing you how to:
+
+Use Angular directives to show and hide elements and display lists of hero data.
+Create Angular components to display hero details and show an array of heroes.
+Use one-way data binding for read-only data.
+Add editable fields to update a model with two-way data binding.
+Bind component methods to user events, like keystrokes and clicks.
+Enable users to select a hero from a list and edit that hero in the details view.
+Format data with pipes.
+Create a shared service to assemble the heroes.
+Use routing to navigate among different views and their components.
+
 ![Angular](https://img.shields.io/badge/Angular-19.2.0-red?style=flat-square&logo=angular)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.5-blue?style=flat-square&logo=typescript)
 ![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)
@@ -9,6 +36,7 @@ A simplified, educational Angular application for managing superheroes, specific
 ## 🎯 Project Goals
 
 This project has been intentionally structured to be **easy to understand** for beginners:
+
 - **Angular 19.2.0**: Uses a stable, widely-used version of Angular.
 - **Simplified Code**: Complex features like Signals, Resources, and SSR have been replaced with traditional, easy-to-follow patterns (Observables, Services, standard Dependency Injection).
 - **Clean Structure**: No distractions—comments and unused test files have been removed to focus purely on the application logic.
@@ -16,11 +44,11 @@ This project has been intentionally structured to be **easy to understand** for 
 ## ✨ Features
 
 - 📊 **Dashboard** - View top 5 heroes with beautiful gradient cards.
-- 📋 **Heroes List** - Browse all heroes with ID badges.
+- 📋 **Heroes List** - Browse all heroes with ID badges, **Pagination**, and **Autocomplete Search**.
 - ✏️ **Edit Heroes** - Update hero names with real-time validation.
 - 🔄 **RESTful API** - Full integration with a local `json-server` backend.
 - 🎨 **Modern UI** - Responsive design with smooth transitions and hover effects.
--  **Responsive** - Works seamlessly on desktop and mobile devices.
+- **Responsive** - Works seamlessly on desktop and mobile devices.
 
 ## 🚀 Getting Started
 
@@ -33,12 +61,14 @@ This project has been intentionally structured to be **easy to understand** for 
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/AbdurRahman-202416/angular-heroes.git
    cd angular-heroes
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
@@ -53,22 +83,29 @@ This project has been intentionally structured to be **easy to understand** for 
 You need to run **two servers** simultaneously (in separate terminal windows):
 
 #### Terminal 1: Start the API Server
+
 This mimics a real backend database.
+
 ```bash
 npm run server
 ```
-*Runs on: `http://localhost:3000`*
+
+_Runs on: `http://localhost:3000`_
 
 #### Terminal 2: Start the Angular App
+
 This starts the frontend application.
+
 ```bash
 npm start
 ```
-*Runs on: `http://localhost:4200`*
+
+_Runs on: `http://localhost:4200`_
 
 ### Access the Application
 
 Open your browser and navigate to:
+
 ```
 http://localhost:4200
 ```
@@ -108,23 +145,26 @@ angular-heroes/
 
 The `json-server` provides the following REST API endpoints:
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/heroes` | Get all heroes |
-| GET | `/heroes/:id` | Get hero by ID |
-| POST | `/heroes` | Create a new hero |
-| PUT | `/heroes/:id` | Update hero by ID |
+| Method | Endpoint      | Description       |
+| ------ | ------------- | ----------------- |
+| GET    | `/heroes`     | Get all heroes    |
+| GET    | `/heroes/:id` | Get hero by ID    |
+| POST   | `/heroes`     | Create a new hero |
+| PUT    | `/heroes/:id` | Update hero by ID |
 | DELETE | `/heroes/:id` | Delete hero by ID |
 
 ## 🎯 Usage Guide
 
 ### View Dashboard
+
 Navigate to the home page to see the top 5 heroes displayed in gradient cards.
 
 ### Browse All Heroes
+
 Click on "Heroes" in the navbar to view the complete list of heroes.
 
 ### Edit a Hero
+
 1. Click on any hero card or list item.
 2. You'll be taken to the hero detail page.
 3. Edit the hero name in the input field.

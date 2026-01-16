@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Hero } from '../models/hero.model';
 
 @Injectable({
@@ -11,8 +11,25 @@ export class HeroService {
 
   constructor(private http: HttpClient) {}
 
-  getHeroes(): Observable<Hero[]> {
-    return this.http.get<Hero[]>(this.apiUrl);
+  getHeroes(page: number = 1, limit: number = 10, term: string = ''): Observable<{ data: Hero[], total: number }> {
+    let params: any = {
+      _page: page,
+      _limit: limit
+    };
+
+    if (term) {
+      params['q'] = term;
+    }
+
+    return this.http.get<Hero[]>(this.apiUrl, { params, observe: 'response' }).pipe(
+      map(response => {
+        const total = Number(response.headers.get('X-Total-Count'));
+        return {
+          data: response.body || [],
+          total: total
+        };
+      })
+    );
   }
 
   getHero(id: number): Observable<Hero> {
